@@ -25,7 +25,7 @@ El sistema está construido sobre una arquitectura moderna basada en **React Ser
 
 ### Stack Tecnológico
 * **Frontend Core:** [React.js](https://react.dev/) (v19) para la construcción de interfaces y componentes reutilizables.
-* **Framework:** [Next.js 15](https://nextjs.org/) (App Router) para la optimización de rutas y renderizado híbrido.
+* **Framework:** [Next.js 16](https://nextjs.org/) (App Router) para la optimización de rutas y renderizado híbrido.
 * **Styling Engine:** Tailwind CSS con diseño atómico.
 * **Motion System:** Framer Motion para micro-interacciones y transiciones de estado de componentes.
 * **Backend / API:** Next.js API Routes (Serverless Functions).
