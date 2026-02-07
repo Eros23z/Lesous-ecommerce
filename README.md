@@ -4,7 +4,7 @@
 > Desarrollada para la gestión y venta exclusiva de artefactos esotéricos.
 
 ![Project Status](https://img.shields.io/badge/Status-Development-gold)
-![Next.js](https://img.shields.io/badge/Core-Next.js_15-black)
+![Next.js](https://img.shields.io/badge/Core-Next.js_16-black)
 ![React](https://img.shields.io/badge/Library-React_19-61dafb)
 ![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue)
 ![Prisma](https://img.shields.io/badge/ORM-Prisma-green)
