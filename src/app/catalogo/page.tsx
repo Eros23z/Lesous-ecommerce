@@ -127,10 +127,6 @@ export default function CatalogoPage() {
                     <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#020202] to-transparent z-10 pointer-events-none" />
 
                     <div className="flex overflow-x-auto gap-2 pb-2 scrollbar-hide snap-x items-center">
-                        {/* AQUÍ ESTABA EL ERROR:
-                           Tu hook 'categories' devuelve objetos [{id: 1, name: 'Collares'}].
-                           Debes usar cat.id como key y cat.name para mostrar y seleccionar.
-                        */}
                         {categories.map((cat) => (
                         <button
                             key={cat.id} // Usamos el ID único

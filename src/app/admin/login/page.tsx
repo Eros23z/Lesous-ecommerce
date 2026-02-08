@@ -4,7 +4,10 @@ import { useState } from "react";
 import { FaArrowLeft, FaLock, FaGem } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // Importante para redirigir
 import { Cinzel, Cormorant_Garamond } from 'next/font/google';
+// 1. Importamos el cliente de Auth Helpers
+import { createClient } from "@/lib/supabase-browser";
 
 // --- FUENTES MÍSTICAS ---
 const cinzel = Cinzel({ 
@@ -20,7 +23,12 @@ const cormorant = Cormorant_Garamond({
 });
 
 export default function LoginPage() {
-  const [user, setUser] = useState("");
+  const router = useRouter();
+  // 2. Inicializamos el cliente de Supabase para componentes
+  const supabase = createClient();
+
+  // 3. Cambiamos 'user' por 'email' (Supabase requiere email)
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -31,20 +39,24 @@ export default function LoginPage() {
     setError("");
 
     try {
-      // Usamos el endpoint correcto /auth/login
-      const res = await fetch("/api/admin/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user, password }),
+      // 4. Lógica de Login con Supabase
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
       });
 
-      if (!res.ok) throw new Error("Credenciales inválidas");
+      if (error) {
+        throw error;
+      }
 
-      // Redirección FUERTE para asegurar que el Middleware lea la cookie
-      window.location.href = "/admin/dashboard";
+      // 5. Login Exitoso: Refrescamos la ruta para actualizar cookies y redirigimos
+      router.refresh(); 
+      router.push("/admin/dashboard");
       
-    } catch (err) {
-      setError("La llave maestra no corresponde a este cerrojo.");
+    } catch (err: any) {
+      console.error("Login error:", err.message);
+      // Mensaje místico de error
+      setError("Las credenciales fueron rechazadas por el grimorio.");
       setLoading(false);
     }
   };
@@ -55,7 +67,6 @@ export default function LoginPage() {
       {/* --- FONDO ATMOSFÉRICO --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/stardust.png")' }} />
-        {/* Luz dorada tenue detrás de la tarjeta */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-[#B3945B] rounded-full blur-[180px] opacity-[0.08]" />
       </div>
 
@@ -65,7 +76,7 @@ export default function LoginPage() {
         transition={{ duration: 0.8 }}
         className="w-full max-w-md bg-[#050505] border border-[#1A1A1A] p-10 relative z-10 group"
       >
-        {/* Bordes Decorativos en las esquinas */}
+        {/* Bordes Decorativos */}
         <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-[#B3945B]/30 group-hover:border-[#B3945B]/60 transition-colors" />
         <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-[#B3945B]/30 group-hover:border-[#B3945B]/60 transition-colors" />
         <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[#B3945B]/30 group-hover:border-[#B3945B]/60 transition-colors" />
@@ -98,14 +109,14 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-1">
             <label className="text-[10px] text-[#B3945B] uppercase tracking-[0.2em] font-bold ml-1" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                Maestro
+                Correo Electrónico
             </label>
             <input
-              type="text"
-              value={user}
-              onChange={(e) => setUser(e.target.value)}
+              type="email" // Importante: type email
+              value={email} // Conectado al estado email
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] px-4 py-3 focus:outline-none focus:border-[#B3945B] transition-colors placeholder-[#333]"
-              placeholder="Identificación..."
+              placeholder="admin@lesous.com"
               style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.1rem' }}
             />
           </div>
@@ -146,7 +157,6 @@ export default function LoginPage() {
                    <>Ingresar <FaGem className="text-xs" /></>
                )}
             </span>
-            {/* Brillo al hover */}
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300" />
           </button>
         </form>

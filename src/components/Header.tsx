@@ -2,10 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FaGem, FaUserShield, FaSignOutAlt, FaSpinner } from 'react-icons/fa';
 import { Cinzel } from 'next/font/google';
+import { createClient } from "@/lib/supabase-browser";
 
 // Configuramos la fuente Cinzel solo para este componente
 const cinzel = Cinzel({ 
@@ -21,23 +22,16 @@ const Header = () => {
   const isInAdminPanel = pathname.startsWith('/admin/dashboard');
   const isLoginPage = pathname === '/admin/login';
 
+  const router = useRouter();
+  const supabase = createClient();
+
   const handleLogout = async () => {
-    setIsLoggingOut(true);
-    try {
-      const res = await fetch('/api/admin/logout', { 
-          method: 'POST',
-          cache: 'no-store'
-      });
-      
-      if (res.ok) {
-          localStorage.clear();
-          sessionStorage.clear();
-          window.location.href = '/catalogo'; 
-      }
-    } catch (error) {
-      console.error("Error al salir", error);
-      setIsLoggingOut(false);
-    }
+    // 1. Le decimos a Supabase que cierre la sesión
+    await supabase.auth.signOut();
+    
+    // 2. Refrescamos para limpiar cookies del navegador y redirigimos
+    router.refresh();
+    router.push("/admin/login"); // O a /catalogo, donde prefieras
   };
 
   const navItems = [
@@ -125,9 +119,7 @@ const Header = () => {
             {!isInAdminPanel && !isLoginPage && (
                 <Link href="/admin/dashboard">
                     <button className="group relative px-6 py-2 bg-transparent overflow-hidden border border-[#B3945B]/20 hover:border-[#B3945B]/60 transition-colors rounded-sm">
-                        {/* Fondo hover sutil */}
                         <div className="absolute inset-0 bg-[#B3945B]/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                        
                         <div className="relative flex items-center gap-2 text-xs font-bold text-[#888] group-hover:text-[#B3945B] uppercase tracking-widest transition-colors" style={{ fontFamily: 'var(--font-cinzel)' }}>
                             <FaUserShield />
                             <span>Maestro</span>

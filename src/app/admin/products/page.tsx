@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { FaArrowLeft, FaGem, FaDollarSign, FaImage, FaLayerGroup, FaMagic, FaBoxOpen } from "react-icons/fa";
 import { Cinzel, Cormorant_Garamond } from 'next/font/google';
 import CategorySelector from "@/components/CategorySelector";
+import ImageUpload from "@/components/ImageUpload";
 
 // --- FUENTES MÍSTICAS ---
 const cinzel = Cinzel({ 
@@ -176,15 +177,9 @@ export default function NewProduct() {
                             <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#555] group-focus-within/input:text-[#B3945B] transition-colors">
                                 <FaImage className="text-xs" />
                             </div>
-                            <input 
-                                type="url" 
-                                name="imageUrl" 
-                                value={formData.imageUrl} 
-                                onChange={handleChange} 
-                                placeholder="URL de la imagen (https://...)" 
-                                required
-                                className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#B3945B] transition-colors placeholder-[#444] text-lg font-light"
-                                style={{ fontFamily: 'var(--font-cormorant)' }}
+                            <ImageUpload 
+                                value={formData.imageUrl}
+                                onChange={(url) => setFormData({ ...formData, imageUrl: url })}
                             />
                         </div>
 
@@ -246,15 +241,9 @@ export default function NewProduct() {
                             {/* Imagen */}
                             <div className="aspect-[4/5] bg-[#0a0a0a] relative flex items-center justify-center overflow-hidden">
                                 {formData.imageUrl ? (
-                                    <Image 
-                                        src={formData.imageUrl} 
-                                        alt="Vista previa" 
-                                        className="w-full h-full object-cover opacity-90"
-                                        width={400}
-                                        height={500}
-                                        onError={(e) => {
-                                            (e.target as HTMLImageElement).src = "";
-                                        }}
+                                    <ImageUpload 
+                                        value={formData.imageUrl}
+                                        onChange={(url) => setFormData({ ...formData, imageUrl: url })}
                                     />
                                 ) : (
                                     <div className="text-[#333] flex flex-col items-center gap-2">
