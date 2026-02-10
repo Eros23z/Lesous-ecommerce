@@ -62,12 +62,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className={`min-h-screen bg-[#020202]/60 text-[#E0E0E0] flex items-center justify-center p-4 relative overflow-hidden ${cinzel.variable} ${cormorant.variable} font-serif`}>
+    <div className={`min-h-screen bg-[#020202]/0 text-[#E0E0E0] flex items-center justify-center p-4 relative overflow-hidden ${cinzel.variable} ${cormorant.variable} font-serif`}>
       
       {/* --- FONDO ATMOSFÉRICO --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/stardust.png")' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-[#B3945B] rounded-full blur-[180px] opacity-[0.08]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-[#c28c28] rounded-full blur-[180px] opacity-[0.08]" />
       </div>
 
       <motion.div
@@ -77,15 +77,15 @@ export default function LoginPage() {
         className="w-full max-w-md bg-[#050505] border border-[#1A1A1A] p-10 relative z-10 group"
       >
         {/* Bordes Decorativos */}
-        <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-[#B3945B]/30 group-hover:border-[#B3945B]/60 transition-colors" />
-        <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-[#B3945B]/30 group-hover:border-[#B3945B]/60 transition-colors" />
-        <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[#B3945B]/30 group-hover:border-[#B3945B]/60 transition-colors" />
-        <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-[#B3945B]/30 group-hover:border-[#B3945B]/60 transition-colors" />
+        <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-[#c28c28]/30 group-hover:border-[#c28c28]/60 transition-colors" />
+        <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-[#c28c28]/30 group-hover:border-[#c28c28]/60 transition-colors" />
+        <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[#c28c28]/30 group-hover:border-[#c28c28]/60 transition-colors" />
+        <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-[#c28c28]/30 group-hover:border-[#c28c28]/60 transition-colors" />
 
         {/* --- BOTÓN VOLVER --- */}
         <div className="mb-8">
           <Link href="/catalogo">
-            <button className="flex items-center gap-3 text-[#666] hover:text-[#B3945B] transition-colors group/back">
+            <button className="flex items-center gap-3 text-[#666] hover:text-[#c28c28] transition-colors group/back">
               <FaArrowLeft className="text-xs group-hover/back:-translate-x-1 transition-transform" />
               <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ fontFamily: 'var(--font-cinzel)' }}>
                 Regresar
@@ -96,40 +96,40 @@ export default function LoginPage() {
 
         {/* --- HEADER --- */}
         <div className="flex flex-col items-center mb-10">
-          <div className="w-16 h-16 rounded-full bg-[#B3945B]/5 border border-[#B3945B]/20 flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(179,148,91,0.1)]">
-            <FaLock className="text-[#B3945B] text-xl" />
+          <div className="w-16 h-16 rounded-full bg-[#c28c28]/5 border border-[#c28c28]/20 flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(179,148,91,0.1)]">
+            <FaLock className="text-[#c28c28] text-xl" />
           </div>
           <h1 className="text-2xl font-bold text-[#EAEAEA] tracking-widest uppercase text-center" style={{ fontFamily: 'var(--font-cinzel)' }}>
             Acceso Restringido
           </h1>
-          <div className="h-[1px] w-12 bg-[#B3945B] mt-4 opacity-50" />
+          <div className="h-[1px] w-12 bg-[#c28c28] mt-4 opacity-50" />
         </div>
 
         {/* --- FORMULARIO --- */}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-1">
-            <label className="text-[10px] text-[#B3945B] uppercase tracking-[0.2em] font-bold ml-1" style={{ fontFamily: 'var(--font-cinzel)' }}>
+            <label className="text-[10px] text-[#c28c28] uppercase tracking-[0.2em] font-bold ml-1" style={{ fontFamily: 'var(--font-cinzel)' }}>
                 Correo Electrónico
             </label>
             <input
               type="email" // Importante: type email
               value={email} // Conectado al estado email
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] px-4 py-3 focus:outline-none focus:border-[#B3945B] transition-colors placeholder-[#333]"
+              className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] px-4 py-3 focus:outline-none focus:border-[#c28c28] transition-colors placeholder-[#333]"
               placeholder="admin@lesous.com"
               style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.1rem' }}
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-[10px] text-[#B3945B] uppercase tracking-[0.2em] font-bold ml-1" style={{ fontFamily: 'var(--font-cinzel)' }}>
+            <label className="text-[10px] text-[#c28c28] uppercase tracking-[0.2em] font-bold ml-1" style={{ fontFamily: 'var(--font-cinzel)' }}>
                 Palabra de Paso
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] px-4 py-3 focus:outline-none focus:border-[#B3945B] transition-colors placeholder-[#333]"
+              className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] px-4 py-3 focus:outline-none focus:border-[#c28c28] transition-colors placeholder-[#333]"
               placeholder="••••••••"
               style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.1rem' }}
             />
@@ -149,7 +149,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#B3945B] hover:bg-[#C5A56A] text-[#050505] font-bold py-4 mt-4 transition-all uppercase tracking-[0.2em] relative overflow-hidden group/btn disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-[#c28c28] hover:bg-[#C5A56A] text-[#050505] font-bold py-4 mt-4 transition-all uppercase tracking-[0.2em] relative overflow-hidden group/btn disabled:opacity-50 disabled:cursor-not-allowed"
             style={{ fontFamily: 'var(--font-cinzel)' }}
           >
             <span className="relative z-10 flex items-center justify-center gap-3">

@@ -42,13 +42,13 @@ export default function ProductDetail({ product }: { product: Product }) {
   };
 
   return (
-    <div className={`min-h-screen bg-[#020202]/60 text-[#E0E0E0] relative overflow-hidden ${cinzel.variable} ${cormorant.variable} font-serif pt-24 pb-20`}>
+    <div className={`min-h-screen bg-[#020202]/0 text-[#E0E0E0] relative overflow-hidden ${cinzel.variable} ${cormorant.variable} font-serif pt-24 pb-20`}>
       
       {/* --- FONDO ATMOSFÉRICO --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/stardust.png")' }} />
         {/* Luz focal sobre el producto */}
-        <div className="absolute top-[20%] left-0 w-[50%] h-[50%] bg-[#B3945B] rounded-full blur-[150px] opacity-[0.05]" />
+        <div className="absolute top-[20%] left-0 w-[50%] h-[50%] bg-[#c28c28] rounded-full blur-[150px] opacity-[0.05]" />
         <div className="absolute bottom-0 right-0 w-[60%] h-[60%] bg-[#1A1A1A] rounded-full blur-[150px] opacity-20" />
       </div>
 
@@ -61,8 +61,8 @@ export default function ProductDetail({ product }: { product: Product }) {
         {/* --- NAVEGACIÓN SUPERIOR --- */}
         <div className="mb-12">
           <Link href="/catalogo">
-             <button className="group flex items-center gap-3 text-[#888] hover:text-[#B3945B] transition-colors">
-                <div className="p-2 rounded-full border border-[#333] group-hover:border-[#B3945B] transition-colors">
+             <button className="group flex items-center gap-3 text-[#888] hover:text-[#c28c28] transition-colors">
+                <div className="p-2 rounded-full border border-[#333] group-hover:border-[#c28c28] transition-colors">
                     <FaArrowLeft className="text-xs group-hover:-translate-x-1 transition-transform" />
                 </div>
                 <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ fontFamily: 'var(--font-cinzel)' }}>
@@ -82,10 +82,10 @@ export default function ProductDetail({ product }: { product: Product }) {
             className="relative w-full aspect-[4/5] lg:aspect-square bg-[#050505] border border-[#1A1A1A] rounded-sm p-4 group"
           >
             {/* Esquinas decorativas */}
-            <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-[#B3945B]/30" />
-            <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-[#B3945B]/30" />
-            <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-[#B3945B]/30" />
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-[#B3945B]/30" />
+            <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-[#c28c28]/30" />
+            <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-[#c28c28]/30" />
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-[#c28c28]/30" />
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-[#c28c28]/30" />
 
             <div className="relative w-full h-full overflow-hidden bg-[#080808]">
                 {product.imageUrl ? (
@@ -118,7 +118,7 @@ export default function ProductDetail({ product }: { product: Product }) {
                 transition={{ delay: 0.3 }}
                 className="flex items-center gap-4 mb-6"
             >
-                <span className="text-[#B3945B] text-xs font-bold uppercase tracking-[0.3em] flex items-center gap-2" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                <span className="text-[#c28c28] text-xs font-bold uppercase tracking-[0.3em] flex items-center gap-2" style={{ fontFamily: 'var(--font-cinzel)' }}>
                     <FaGem className="text-[10px]" />
                     {product.category?.name || "Objeto Raro"}
                 </span>
@@ -144,9 +144,9 @@ export default function ProductDetail({ product }: { product: Product }) {
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="flex items-baseline gap-2 mb-8 border-b border-[#B3945B]/20 pb-8 origin-left"
+                className="flex items-baseline gap-2 mb-8 border-b border-[#c28c28]/20 pb-8 origin-left"
             >
-                <span className="text-4xl text-[#B3945B] font-light" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                <span className="text-4xl text-[#c28c28] font-light" style={{ fontFamily: 'var(--font-cinzel)' }}>
                 ${price.toFixed(2)}
                 </span>
                 <span className="text-sm text-[#666] uppercase tracking-widest ml-2">Moneda Local</span>
@@ -176,7 +176,7 @@ export default function ProductDetail({ product }: { product: Product }) {
                 className={`
                   relative w-full py-5 px-8 overflow-hidden transition-all duration-500 group
                   ${product.stock > 0 
-                    ? 'bg-[#B3945B] hover:bg-[#C5A56A]' // Dorado sólido
+                    ? 'bg-[#c28c28] hover:bg-[#C5A56A]' // Dorado sólido
                     : 'bg-[#1a1a1a] cursor-not-allowed border border-[#333]'}
                 `}
               >
@@ -196,9 +196,9 @@ export default function ProductDetail({ product }: { product: Product }) {
               </button>
               
               <div className="mt-6 flex justify-center items-center gap-2 text-[#444] text-[10px] uppercase tracking-[0.2em]">
-                 <div className="w-1 h-1 rounded-full bg-[#B3945B]/50" />
+                 <div className="w-1 h-1 rounded-full bg-[#c28c28]/50" />
                  <span>Transacción Directa con el Maestro</span>
-                 <div className="w-1 h-1 rounded-full bg-[#B3945B]/50" />
+                 <div className="w-1 h-1 rounded-full bg-[#c28c28]/50" />
               </div>
             </motion.div>
 

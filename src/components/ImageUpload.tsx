@@ -82,18 +82,18 @@ export default function ImageUpload({ value, onChange, disabled }: ImageUploadPr
                 <label className={`
                     flex flex-col items-center justify-center w-full h-40 
                     border-2 border-dashed border-[#333] bg-[#050505] 
-                    hover:border-[#B3945B] hover:bg-[#B3945B]/5 transition-all cursor-pointer
+                    hover:border-[#c28c28] hover:bg-[#c28c28]/5 transition-all cursor-pointer
                     ${disabled || uploading ? "opacity-50 cursor-not-allowed" : ""}
                 `}>
                     <div className="flex flex-col items-center justify-center pt-5 pb-6 text-[#666]">
                         {uploading ? (
                             <>
-                                <FaSpinner className="animate-spin text-2xl text-[#B3945B] mb-2" />
+                                <FaSpinner className="animate-spin text-2xl text-[#c28c28] mb-2" />
                                 <p className="text-sm">Invocando imagen...</p>
                             </>
                         ) : (
                             <>
-                                <FaCloudUploadAlt className="text-3xl mb-3 text-[#B3945B]" />
+                                <FaCloudUploadAlt className="text-3xl mb-3 text-[#c28c28]" />
                                 <p className="text-sm font-light"><span className="font-bold">Click para subir</span> o arrastra aquí</p>
                                 <p className="text-xs text-[#444] mt-1">PNG, JPG, WEBP (MAX. 2MB)</p>
                             </>

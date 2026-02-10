@@ -98,20 +98,20 @@ export default function CategoriesPage() {
       {/* Fondo Ambiental */}
       <div className="fixed inset-0 pointer-events-none z-0">
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/stardust.png")' }} />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[40%] bg-[#B3945B] rounded-full blur-[150px] opacity-[0.05]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[40%] bg-[#c28c28] rounded-full blur-[150px] opacity-[0.05]" />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
         
         {/* --- HEADER --- */}
-        <div className="flex items-center gap-4 mb-12 border-b border-[#B3945B]/20 pb-6">
+        <div className="flex items-center gap-4 mb-12 border-b border-[#c28c28]/20 pb-6">
           <Link href="/admin/dashboard">
-            <button className="w-10 h-10 flex items-center justify-center rounded-sm border border-[#333] text-[#666] hover:text-[#B3945B] hover:border-[#B3945B] transition-colors">
+            <button className="w-10 h-10 flex items-center justify-center rounded-sm border border-[#333] text-[#666] hover:text-[#c28c28] hover:border-[#c28c28] transition-colors">
               <FaArrowLeft />
             </button>
           </Link>
           <div>
-             <p className="text-[#B3945B] text-[10px] uppercase tracking-[0.2em] font-bold" style={{ fontFamily: 'var(--font-cinzel)' }}>Configuración</p>
+             <p className="text-[#c28c28] text-[10px] uppercase tracking-[0.2em] font-bold" style={{ fontFamily: 'var(--font-cinzel)' }}>Configuración</p>
              <h1 className="text-3xl font-bold text-[#EAEAEA]" style={{ fontFamily: 'var(--font-cinzel)' }}>Clases de Artefactos</h1>
           </div>
         </div>
@@ -121,13 +121,13 @@ export default function CategoriesPage() {
           {/* --- COLUMNA 1: FORMULARIO DE CREACIÓN --- */}
           <div className="bg-[#050505] border border-[#1A1A1A] p-8 relative group h-fit">
             {/* Esquinas decorativas */}
-            <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#B3945B]/40" />
-            <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#B3945B]/40" />
-            <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[#B3945B]/40" />
-            <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#B3945B]/40" />
+            <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#c28c28]/40" />
+            <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#c28c28]/40" />
+            <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[#c28c28]/40" />
+            <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#c28c28]/40" />
 
             <h2 className="text-lg text-[#EAEAEA] mb-6 flex items-center gap-2" style={{ fontFamily: 'var(--font-cinzel)' }}>
-              <FaPlus className="text-[#B3945B] text-xs" /> Nueva Clase
+              <FaPlus className="text-[#c28c28] text-xs" /> Nueva Clase
             </h2>
 
             <form onSubmit={handleCreate} className="space-y-6">
@@ -137,7 +137,7 @@ export default function CategoriesPage() {
                   value={newCategoryName}
                   onChange={(e) => setNewCategoryName(e.target.value)}
                   placeholder="Nombre (ej. Talismanes)" 
-                  className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] px-4 py-3 focus:outline-none focus:border-[#B3945B] transition-colors placeholder-[#444] font-light"
+                  className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] px-4 py-3 focus:outline-none focus:border-[#c28c28] transition-colors placeholder-[#444] font-light"
                   style={{ fontFamily: 'var(--font-cormorant)' }}
                 />
               </div>
@@ -151,7 +151,7 @@ export default function CategoriesPage() {
               <button 
                 type="submit"
                 disabled={submitting || !newCategoryName}
-                className="w-full bg-[#B3945B] hover:bg-[#C5A56A] text-[#050505] py-3 font-bold uppercase tracking-[0.2em] text-xs transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[#c28c28] hover:bg-[#C5A56A] text-[#050505] py-3 font-bold uppercase tracking-[0.2em] text-xs transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ fontFamily: 'var(--font-cinzel)' }}
               >
                 {submitting ? "Inscribiendo..." : "Agregar al Grimorio"}
@@ -161,12 +161,12 @@ export default function CategoriesPage() {
 
           {/* --- COLUMNA 2: LISTA DE CATEGORÍAS --- */}
           <div>
-             <h2 className="text-[#B3945B] text-xs uppercase tracking-[0.2em] mb-6 font-bold" style={{ fontFamily: 'var(--font-cinzel)' }}>
+             <h2 className="text-[#c28c28] text-xs uppercase tracking-[0.2em] mb-6 font-bold" style={{ fontFamily: 'var(--font-cinzel)' }}>
                Clases Existentes
              </h2>
 
              {loading ? (
-                <div className="flex justify-center py-10 text-[#B3945B]">
+                <div className="flex justify-center py-10 text-[#c28c28]">
                    <FaSpinner className="animate-spin text-2xl" />
                 </div>
              ) : (
@@ -178,10 +178,10 @@ export default function CategoriesPage() {
                        initial={{ opacity: 0, x: -10 }}
                        animate={{ opacity: 1, x: 0 }}
                        exit={{ opacity: 0, x: 10 }}
-                       className="group flex justify-between items-center bg-[#080808] border border-[#1A1A1A] p-4 hover:border-[#B3945B]/30 transition-colors"
+                       className="group flex justify-between items-center bg-[#080808] border border-[#1A1A1A] p-4 hover:border-[#c28c28]/30 transition-colors"
                      >
                        <div className="flex items-center gap-3">
-                         <FaLayerGroup className="text-[#333] group-hover:text-[#B3945B] transition-colors" />
+                         <FaLayerGroup className="text-[#333] group-hover:text-[#c28c28] transition-colors" />
                          <span className="text-[#E0E0E0] text-lg font-light" style={{ fontFamily: 'var(--font-cormorant)' }}>
                             {cat.name}
                          </span>
@@ -191,7 +191,7 @@ export default function CategoriesPage() {
                        </div>
 
                        <button 
-                         onClick={() => initiateDelete(cat.id)} // CAMBIO AQUÍ: Usamos la nueva función
+                         onClick={() => initiateDelete(cat.id)} 
                          className="text-[#444] hover:text-red-500 transition-colors p-2"
                          title="Desintegrar Clase"
                        >
@@ -226,7 +226,7 @@ export default function CategoriesPage() {
             {/* Contenido del Modal */}
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
-              className="relative bg-[#050505] border border-[#B3945B]/30 p-8 max-w-sm w-full shadow-[0_0_30px_rgba(0,0,0,0.8)]"
+              className="relative bg-[#050505] border border-[#c28c28]/30 p-8 max-w-sm w-full shadow-[0_0_30px_rgba(0,0,0,0.8)]"
             >
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 rounded-full bg-red-900/20 flex items-center justify-center text-red-500 mb-4 border border-red-900/40">

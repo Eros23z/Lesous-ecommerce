@@ -44,7 +44,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      className={`fixed top-0 left-0 right-0 z-50 bg-[#020202]/60 backdrop-blur-md border-b border-[#B3945B]/20 ${cinzel.variable} font-serif`}
+      className={`fixed top-0 left-0 right-0 z-50 bg-[#020202]/50 backdrop-blur-md border-b border-[#c28c28]/20 ${cinzel.variable} font-serif`}
     >
       <div className="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
         
@@ -52,7 +52,7 @@ const Header = () => {
         <Link href="/" className="group flex items-center gap-3">
           <motion.div 
             whileHover={{ rotate: 45, scale: 1.1 }} 
-            className="text-[#B3945B] bg-[#B3945B]/10 p-2 rounded-full border border-[#B3945B]/20 transition-colors group-hover:bg-[#B3945B] group-hover:text-black"
+            className="text-[#c28c28] bg-[#c28c28]/10 p-2 rounded-full border border-[#c28c28]/20 transition-colors group-hover:bg-[#c28c28] group-hover:text-black"
           >
             <FaGem className="text-xl" />
           </motion.div>
@@ -60,7 +60,7 @@ const Header = () => {
             <span className="text-2xl font-bold text-[#EAEAEA] tracking-[0.15em] uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
               Lesous
             </span>
-            <span className="text-[0.6rem] text-[#B3945B] tracking-[0.3em] uppercase opacity-80 group-hover:opacity-100 transition-opacity">
+            <span className="text-[0.6rem] text-[#c28c28] tracking-[0.3em] uppercase opacity-80 group-hover:opacity-100 transition-opacity">
               Artefacts
             </span>
           </div>
@@ -76,7 +76,7 @@ const Header = () => {
                   key={item.name} 
                   href={item.href} 
                   className={`relative text-xs uppercase tracking-[0.2em] font-bold transition-all duration-300 ${
-                    isActive ? 'text-[#B3945B]' : 'text-[#888] hover:text-[#EAEAEA]'
+                    isActive ? 'text-[#c28c28]' : 'text-[#888] hover:text-[#EAEAEA]'
                   }`}
                   style={{ fontFamily: 'var(--font-cinzel)' }}
                 >
@@ -84,7 +84,7 @@ const Header = () => {
                   {isActive && (
                     <motion.div 
                       layoutId="dot" 
-                      className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#B3945B] rounded-full shadow-[0_0_8px_#B3945B]" 
+                      className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#c28c28] rounded-full shadow-[0_0_8px_#c28c28]" 
                     />
                   )}
                 </Link>
@@ -104,7 +104,7 @@ const Header = () => {
                     className={`group relative px-5 py-2 overflow-hidden border transition-all duration-300 rounded-sm
                         ${isLoggingOut 
                             ? 'border-gray-800 text-gray-600 cursor-not-allowed' 
-                            : 'border-[#B3945B]/30 text-[#B3945B] hover:border-red-500/50 hover:text-red-400'
+                            : 'border-[#c28c28]/30 text-[#c28c28] hover:border-red-500/50 hover:text-red-400'
                         }
                     `}
                 >
@@ -118,9 +118,9 @@ const Header = () => {
             {/* Botón Admin (Estilo Místico) */}
             {!isInAdminPanel && !isLoginPage && (
                 <Link href="/admin/dashboard">
-                    <button className="group relative px-6 py-2 bg-transparent overflow-hidden border border-[#B3945B]/20 hover:border-[#B3945B]/60 transition-colors rounded-sm">
-                        <div className="absolute inset-0 bg-[#B3945B]/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                        <div className="relative flex items-center gap-2 text-xs font-bold text-[#888] group-hover:text-[#B3945B] uppercase tracking-widest transition-colors" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                    <button className="group relative px-6 py-2 bg-transparent overflow-hidden border border-[#c28c28]/20 hover:border-[#c28c28]/60 transition-colors rounded-sm">
+                        <div className="absolute inset-0 bg-[#c28c28]/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                        <div className="relative flex items-center gap-2 text-xs font-bold text-[#888] group-hover:text-[#c28c28] uppercase tracking-widest transition-colors" style={{ fontFamily: 'var(--font-cinzel)' }}>
                             <FaUserShield />
                             <span>Maestro</span>
                         </div>

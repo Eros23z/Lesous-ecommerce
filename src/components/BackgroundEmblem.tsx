@@ -7,7 +7,7 @@ export default function BackgroundEmblem() {
     <div className="fixed inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
       
       <div 
-        className="relative w-[90vw] h-[90vw] md:w-[60vw] md:h-[60vw] max-w-[1200px] max-h-[1200px] mt-10"
+        className="relative w-[130vw] h-[130vw] md:w-[60vw] md:h-[60vw] max-w-[1200px] max-h-[1200px] mt-10"
         style={{
             // LA MAGIA OCURRE AQUÍ:
             // 1. grayscale(1): Quitamos el color rojo original.

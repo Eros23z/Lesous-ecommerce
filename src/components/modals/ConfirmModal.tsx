@@ -30,7 +30,7 @@ export default function ConfirmModal({ isOpen, onClose, onConfirm, title, messag
             initial={{ scale: 0.9, opacity: 0 }} 
             animate={{ scale: 1, opacity: 1 }} 
             exit={{ scale: 0.9, opacity: 0 }} 
-            className="relative bg-[#050505] border border-[#B3945B]/30 p-8 max-w-sm w-full shadow-[0_0_30px_rgba(0,0,0,0.8)]"
+            className="relative bg-[#050505] border border-[#c28c28]/30 p-8 max-w-sm w-full shadow-[0_0_30px_rgba(0,0,0,0.8)]"
           >
             <div className="flex flex-col items-center text-center">
               <div className="w-12 h-12 rounded-full bg-red-900/20 flex items-center justify-center text-red-500 mb-4 border border-red-900/40">

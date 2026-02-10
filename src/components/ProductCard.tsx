@@ -20,7 +20,7 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <motion.div
       whileHover={{ y: -10 }}
-      className={`group relative h-full bg-[#050505] border border-[#1A1A1A] hover:border-[#B3945B]/40 transition-all duration-500 overflow-hidden ${cinzel.variable} ${cormorant.variable}`}
+      className={`group relative h-full bg-[#050505] border border-[#1A1A1A] hover:border-[#c28c28]/40 transition-all duration-500 overflow-hidden ${cinzel.variable} ${cormorant.variable}`}
     >
       {/* Imagen */}
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#0a0a0a]">
@@ -44,9 +44,9 @@ export default function ProductCard({ product }: { product: Product }) {
       {/* Info del Producto */}
       <div className="p-6 relative">
         {/* Línea decorativa */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-[#B3945B] group-hover:w-3/4 transition-all duration-500" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-[#c28c28] group-hover:w-3/4 transition-all duration-500" />
 
-        <p className="text-[10px] text-[#B3945B] tracking-[0.2em] uppercase mb-2 text-center" style={{ fontFamily: 'var(--font-cinzel)' }}>
+        <p className="text-[10px] text-[#c28c28] tracking-[0.2em] uppercase mb-2 text-center" style={{ fontFamily: 'var(--font-cinzel)' }}>
             {product.category?.name || "Artefacto"}
         </p>
 
@@ -54,7 +54,7 @@ export default function ProductCard({ product }: { product: Product }) {
           {product.name}
         </h3>
 
-        <p className="text-[#888] text-center text-lg italic group-hover:text-[#B3945B] transition-colors" style={{ fontFamily: 'var(--font-cormorant)' }}>
+        <p className="text-[#888] text-center text-lg italic group-hover:text-[#c28c28] transition-colors" style={{ fontFamily: 'var(--font-cormorant)' }}>
           ${product.price}
         </p>
       </div>

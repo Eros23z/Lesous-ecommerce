@@ -23,7 +23,7 @@ export default function CategorySelector({
   return (
     <div className="relative group/input">
       {/* Icono */}
-      <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#555] group-focus-within/input:text-[#B3945B] transition-colors">
+      <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#555] group-focus-within/input:text-[#c28c28] transition-colors">
         {loading ? <FaSpinner className="animate-spin text-xs" /> : <FaLayerGroup className="text-xs" />}
       </div>
 
@@ -34,7 +34,7 @@ export default function CategorySelector({
         onChange={onChange}
         required={required}
         disabled={loading}
-        className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#B3945B] transition-colors appearance-none cursor-pointer text-lg font-light disabled:opacity-50"
+        className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#c28c28] transition-colors appearance-none cursor-pointer text-lg font-light disabled:opacity-50"
         style={{ fontFamily: 'var(--font-cormorant)' }}
       >
         <option value="" className="bg-[#050505] text-[#666]">

@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <div 
-      className={`relative min-h-screen bg-[#020202]/20 text-[#E0E0E0] overflow-hidden selection:bg-[#B3945B]/30 ${cinzel.variable} ${cormorant.variable} font-serif`}
+      className={`relative min-h-screen bg-[#020202]/0 text-[#E0E0E0] overflow-hidden selection:bg-[#c28c28]/30 ${cinzel.variable} ${cormorant.variable} font-serif`}
       
     >
       {/* --- HERO SECTION --- */}
@@ -44,8 +44,8 @@ export default function Home() {
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="relative mb-10"
           >
-            <div className="absolute inset-0 bg-[#B3945B] blur-[60px] opacity-20 animate-pulse" />
-            <FaGem className="text-[#B3945B] text-7xl relative z-10 drop-shadow-[0_0_15px_rgba(179,148,91,0.5)]" />
+            <div className="absolute inset-0 bg-[#c28c28] blur-[60px] opacity-20 animate-pulse" />
+            <FaGem className="text-[#c28c28] text-7xl relative z-10 drop-shadow-[0_0_15px_rgba(179,148,91,0.5)]" />
           </motion.div>
 
           {/* Título Principal */}
@@ -58,7 +58,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="mt-6 text-xl md:text-3xl text-[#B3945B]/80 max-w-2xl font-light italic tracking-wide"
+            className="mt-6 text-xl md:text-3xl text-[#c28c28]/80 max-w-2xl font-light italic tracking-wide"
             style={{ fontFamily: 'var(--font-cormorant)' }}
           >
             Donde la magia antigua se forja en metal eterno.
@@ -72,20 +72,20 @@ export default function Home() {
             className="mt-16"
           >
             <Link href="/catalogo">
-              <button className="group relative px-12 py-5 bg-transparent overflow-hidden border border-[#B3945B]/30 transition-all hover:border-[#B3945B]">
+              <button className="group relative px-12 py-5 bg-transparent overflow-hidden border border-[#c28c28]/30 transition-all hover:border-[#c28c28]">
                 {/* Fondo que se llena */}
-                <div className="absolute inset-0 w-0 bg-[#B3945B] transition-all duration-[250ms] ease-out group-hover:w-full opacity-10" />
+                <div className="absolute inset-0 w-0 bg-[#c28c28] transition-all duration-[250ms] ease-out group-hover:w-full opacity-10" />
                 
-                <span className="relative flex items-center gap-4 text-[#B3945B] group-hover:text-[#FCD34D] tracking-[0.25em] text-sm font-bold uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                <span className="relative flex items-center gap-4 text-[#c28c28] group-hover:text-[#FCD34D] tracking-[0.25em] text-sm font-bold uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
                   Grimorio
                   <FaArrowRight className="text-xs transition-transform group-hover:translate-x-2" />
                 </span>
                 
                 {/* Esquinas Doradas */}
-                <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#B3945B]" />
-                <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-[#B3945B]" />
-                <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[#B3945B]" />
-                <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#B3945B]" />
+                <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#c28c28]" />
+                <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-[#c28c28]" />
+                <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[#c28c28]" />
+                <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#c28c28]" />
               </button>
             </Link>
           </motion.div>
@@ -104,9 +104,9 @@ export default function Home() {
                 La Esencia
             </h2>
             <div className="flex justify-center items-center gap-4 mt-4 opacity-60">
-                <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#B3945B]" />
-                <div className="w-2 h-2 rotate-45 bg-[#B3945B]" />
-                <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#B3945B]" />
+                <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#c28c28]" />
+                <div className="w-2 h-2 rotate-45 bg-[#c28c28]" />
+                <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#c28c28]" />
             </div>
         </div>
 
@@ -143,15 +143,15 @@ function MagicCard({ icon, title, desc }: { icon: any, title: string, desc: stri
       className="group relative p-8 bg-[#050505] border border-[#ffffff]/5 transition-all duration-500 hover:bg-[#0a0a0a]"
     >
       {/* Esquinas que aparecen al hover */}
-      <div className="absolute top-0 left-0 w-full h-full border border-[#B3945B]/0 group-hover:border-[#B3945B]/30 transition-all duration-700" />
+      <div className="absolute top-0 left-0 w-full h-full border border-[#c28c28]/0 group-hover:border-[#c28c28]/30 transition-all duration-700" />
       
       {/* Icono Flotante */}
       <div className="relative z-10 flex flex-col items-center text-center">
-        <div className="w-16 h-16 rounded-full bg-[#B3945B]/5 flex items-center justify-center mb-6 text-2xl text-[#B3945B] group-hover:scale-110 group-hover:bg-[#B3945B]/10 group-hover:shadow-[0_0_20px_rgba(179,148,91,0.2)] transition-all duration-500">
+        <div className="w-16 h-16 rounded-full bg-[#c28c28]/5 flex items-center justify-center mb-6 text-2xl text-[#c28c28] group-hover:scale-110 group-hover:bg-[#c28c28]/10 group-hover:shadow-[0_0_20px_rgba(179,148,91,0.2)] transition-all duration-500">
           {icon}
         </div>
         
-        <h3 className="text-2xl text-[#E0E0E0] mb-4 group-hover:text-[#B3945B] transition-colors" style={{ fontFamily: 'var(--font-cinzel)' }}>
+        <h3 className="text-2xl text-[#E0E0E0] mb-4 group-hover:text-[#c28c28] transition-colors" style={{ fontFamily: 'var(--font-cinzel)' }}>
           {title}
         </h3>
         

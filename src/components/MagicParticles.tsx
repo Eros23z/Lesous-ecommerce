@@ -31,7 +31,7 @@ const Particle = ({ delay, duration }: { delay: number; duration: number }) => {
         delay: delay,
         ease: "easeInOut" 
       }}
-      className="absolute w-1 h-1 bg-[#B3945B] rounded-full shadow-[0_0_5px_#B3945B] pointer-events-none"
+      className="absolute w-1 h-1 bg-[#c28c28] rounded-full shadow-[0_0_5px_#c28c28] pointer-events-none"
     />
   );
 };

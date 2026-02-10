@@ -71,24 +71,24 @@ export default function Dashboard() {
   );
 
   return (
-    <div className={`min-h-screen bg-[#020202]/60 text-[#E0E0E0] font-serif selection:bg-[#B3945B]/30 ${cinzel.variable} ${cormorant.variable} pb-20`}>
+    <div className={`min-h-screen bg-[#020202]/0 text-[#E0E0E0] font-serif selection:bg-[#c28c28]/30 ${cinzel.variable} ${cormorant.variable} pb-20`}>
       
       {/* --- FONDO ATMOSFÉRICO --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/stardust.png")' }} />
          {/* Luz tenue en la esquina superior */}
-         <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#B3945B] rounded-full blur-[150px] opacity-[0.08]" />
+         <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#c28c28] rounded-full blur-[150px] opacity-[0.08]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
         
         {/* --- ENCABEZADO: TÍTULO Y BOTÓN --- */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 border-b border-[#B3945B]/20 pb-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 border-b border-[#c28c28]/20 pb-8">
           <div>
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-[#B3945B] text-xs font-bold uppercase tracking-[0.3em] mb-2"
+              className="text-[#c28c28] text-xs font-bold uppercase tracking-[0.3em] mb-2"
               style={{ fontFamily: 'var(--font-cinzel)' }}
             >
               Panel de Maestro
@@ -103,33 +103,29 @@ export default function Dashboard() {
             </motion.h1>
           </div>
 
-          <div className="flex gap-4">
-            <Link href="/admin/categories">
+          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+            <Link href="/admin/categories" className="w-full md:w-auto">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="group relative px-8 py-4 bg-transparent border border-[#B3945B]/40 hover:border-[#B3945B] transition-colors overflow-hidden"
+                className="w-full group relative px-8 py-4 bg-transparent border border-[#c28c28]/40 hover:border-[#c28c28] transition-colors overflow-hidden"
               >
-                {/* Relleno al hover */}
-                <div className="absolute inset-0 bg-[#B3945B]/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              
-                <div className="relative flex items-center gap-3 text-[#B3945B] font-bold uppercase tracking-[0.15em] text-sm" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                <div className="absolute inset-0 bg-[#c28c28]/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                <div className="relative flex items-center justify-center md:justify-start gap-3 text-[#c28c28] font-bold uppercase tracking-[0.15em] text-sm" style={{ fontFamily: 'var(--font-cinzel)' }}>
                   <FaLayerGroup className="text-xs" />
                   <span>Categorias</span>
                 </div>
               </motion.button>
             </Link>
 
-            <Link href="/admin/products">
+            <Link href="/admin/products" className="w-full md:w-auto">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="group relative px-8 py-4 bg-transparent border border-[#B3945B]/40 hover:border-[#B3945B] transition-colors overflow-hidden"
+                className="w-full group relative px-8 py-4 bg-transparent border border-[#c28c28]/40 hover:border-[#c28c28] transition-colors overflow-hidden"
               >
-                {/* Relleno al hover */}
-                <div className="absolute inset-0 bg-[#B3945B]/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              
-                <div className="relative flex items-center gap-3 text-[#B3945B] font-bold uppercase tracking-[0.15em] text-sm" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                <div className="absolute inset-0 bg-[#c28c28]/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                <div className="relative flex items-center justify-center md:justify-start gap-3 text-[#c28c28] font-bold uppercase tracking-[0.15em] text-sm" style={{ fontFamily: 'var(--font-cinzel)' }}>
                   <FaPlus className="text-xs" />
                   <span>Forjar Artefacto</span>
                 </div>
@@ -153,7 +149,7 @@ export default function Dashboard() {
             placeholder="Buscar en el grimorio..." 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full bg-transparent border-b border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#B3945B] transition-colors placeholder-[#444] text-lg font-light"
+            className="w-full bg-transparent border-b border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#c28c28] transition-colors placeholder-[#444] text-lg font-light"
             style={{ fontFamily: 'var(--font-cormorant)' }}
           />
         </motion.div>
@@ -183,7 +179,7 @@ export default function Dashboard() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  className="group relative bg-[#050505] border border-[#1A1A1A] hover:border-[#B3945B]/30 p-4 transition-all duration-300"
+                  className="group relative bg-[#050505] border border-[#1A1A1A] hover:border-[#c28c28]/30 p-4 transition-all duration-300"
                 >
                   <div className="flex flex-col md:grid md:grid-cols-12 gap-6 items-center">
                     
@@ -204,17 +200,16 @@ export default function Dashboard() {
                          )}
                       </div>
                       <div>
-                        <h3 className="text-lg text-[#E0E0E0] group-hover:text-[#B3945B] transition-colors font-serif tracking-wide" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                        <h3 className="text-lg text-[#E0E0E0] group-hover:text-[#c28c28] transition-colors font-serif tracking-wide" style={{ fontFamily: 'var(--font-cinzel)' }}>
                           {product.name}
                         </h3>
-                        <span className="text-xs text-[#555] md:hidden font-mono">ID: {product.id.slice(0,4)}</span>
                       </div>
                     </div>
 
                     {/* 2. PRECIO */}
                     <div className="col-span-2 w-full md:w-auto flex justify-between md:block">
                       <span className="md:hidden text-[#666] text-xs uppercase tracking-widest">Valor:</span>
-                      <span className="text-lg text-[#B3945B] font-light" style={{ fontFamily: 'var(--font-cormorant)' }}>
+                      <span className="text-lg text-[#c28c28] font-light" style={{ fontFamily: 'var(--font-cormorant)' }}>
                         ${Number(product.price).toFixed(2)}
                       </span>
                     </div>
@@ -232,7 +227,7 @@ export default function Dashboard() {
                       
                       <Link href={`/admin/products/edit/${product.id}`}>
                         <button 
-                          className="w-10 h-10 flex items-center justify-center border border-[#333] text-[#666] hover:border-[#B3945B] hover:text-[#B3945B] transition-all bg-[#080808]"
+                          className="w-10 h-10 flex items-center justify-center border border-[#333] text-[#666] hover:border-[#c28c28] hover:text-[#c28c28] transition-all bg-[#080808]"
                           title="Modificar"
                         >
                           <FaPen size={12} />
@@ -268,7 +263,7 @@ export default function Dashboard() {
             </p>
             <button 
               onClick={() => setSearchTerm("")}
-              className="mt-4 text-[#B3945B] text-sm hover:underline uppercase tracking-wider"
+              className="mt-4 text-[#c28c28] text-sm hover:underline uppercase tracking-wider"
             >
               Limpiar búsqueda
             </button>

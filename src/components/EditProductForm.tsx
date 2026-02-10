@@ -76,12 +76,12 @@ export default function EditProductForm({ product }: { product: any }) {
     }
 
     return (
-        <div className={`min-h-screen bg-[#020202]/60 text-[#E0E0E0] flex items-center justify-center p-4 relative overflow-hidden ${cinzel.variable} ${cormorant.variable} font-serif pt-24 pb-20`}>
+        <div className={`min-h-screen bg-[#020202]/0 text-[#E0E0E0] flex items-center justify-center p-4 relative overflow-hidden ${cinzel.variable} ${cormorant.variable} font-serif pt-24 pb-20`}>
             
             {/* --- FONDO ATMOSFÉRICO --- */}
             <div className="fixed inset-0 z-0 pointer-events-none">
                 <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/stardust.png")' }} />
-                <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#B3945B] rounded-full blur-[150px] opacity-[0.05]" />
+                <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#c28c28] rounded-full blur-[150px] opacity-[0.05]" />
                 <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-[#1A1A1A] rounded-full blur-[100px] opacity-[0.2]" />
             </div>
 
@@ -95,19 +95,19 @@ export default function EditProductForm({ product }: { product: any }) {
                 <div className="bg-[#050505] border border-[#1A1A1A] p-8 md:p-10 relative group">
                     
                     {/* Decoración de esquinas */}
-                    <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#B3945B]/40" />
-                    <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-[#B3945B]/40" />
-                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[#B3945B]/40" />
-                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#B3945B]/40" />
+                    <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#c28c28]/40" />
+                    <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-[#c28c28]/40" />
+                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[#c28c28]/40" />
+                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#c28c28]/40" />
 
-                    <div className="flex items-center gap-4 mb-8 border-b border-[#B3945B]/10 pb-6">
+                    <div className="flex items-center gap-4 mb-8 border-b border-[#c28c28]/10 pb-6">
                         <Link href="/admin/dashboard">
-                            <button className="w-8 h-8 flex items-center justify-center rounded-sm border border-[#333] text-[#666] hover:text-[#B3945B] hover:border-[#B3945B] transition-colors">
+                            <button className="w-8 h-8 flex items-center justify-center rounded-sm border border-[#333] text-[#666] hover:text-[#c28c28] hover:border-[#c28c28] transition-colors">
                                 <FaArrowLeft size={10} />
                             </button>
                         </Link>
                         <div>
-                            <p className="text-[#B3945B] text-[10px] uppercase tracking-[0.2em] font-bold" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                            <p className="text-[#c28c28] text-[10px] uppercase tracking-[0.2em] font-bold" style={{ fontFamily: 'var(--font-cinzel)' }}>
                                 Modificar Registro
                             </p>
                             <h1 className="text-2xl font-bold text-[#EAEAEA] uppercase tracking-widest" style={{ fontFamily: 'var(--font-cinzel)' }}>
@@ -120,7 +120,7 @@ export default function EditProductForm({ product }: { product: any }) {
                         
                         {/* Nombre */}
                         <div className="relative group/input">
-                            <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#555] group-focus-within/input:text-[#B3945B] transition-colors">
+                            <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#555] group-focus-within/input:text-[#c28c28] transition-colors">
                                 <FaGem className="text-xs" />
                             </div>
                             <input 
@@ -130,7 +130,7 @@ export default function EditProductForm({ product }: { product: any }) {
                                 onChange={handleChange} 
                                 placeholder="Nombre del Artefacto" 
                                 required
-                                className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#B3945B] transition-colors placeholder-[#444] text-lg font-light"
+                                className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#c28c28] transition-colors placeholder-[#444] text-lg font-light"
                                 style={{ fontFamily: 'var(--font-cormorant)' }}
                             />
                         </div>
@@ -138,7 +138,7 @@ export default function EditProductForm({ product }: { product: any }) {
                         <div className="grid grid-cols-2 gap-6">
                             {/* Precio */}
                             <div className="relative group/input">
-                                <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#555] group-focus-within/input:text-[#B3945B] transition-colors">
+                                <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#555] group-focus-within/input:text-[#c28c28] transition-colors">
                                     <FaDollarSign className="text-xs" />
                                 </div>
                                 <input 
@@ -150,13 +150,13 @@ export default function EditProductForm({ product }: { product: any }) {
                                     required
                                     min="0"
                                     step="0.01"
-                                    className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#B3945B] transition-colors placeholder-[#444] text-lg font-light"
+                                    className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#c28c28] transition-colors placeholder-[#444] text-lg font-light"
                                     style={{ fontFamily: 'var(--font-cormorant)' }}
                                 />
                             </div>
                             {/* Stock */}
                             <div className="relative group/input">
-                                <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#555] group-focus-within/input:text-[#B3945B] transition-colors">
+                                <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#555] group-focus-within/input:text-[#c28c28] transition-colors">
                                     <FaBoxOpen className="text-xs" />
                                 </div>
                                 <input 
@@ -167,7 +167,7 @@ export default function EditProductForm({ product }: { product: any }) {
                                     placeholder="Cantidad" 
                                     required
                                     min="0"
-                                    className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#B3945B] transition-colors placeholder-[#444] text-lg font-light"
+                                    className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#c28c28] transition-colors placeholder-[#444] text-lg font-light"
                                     style={{ fontFamily: 'var(--font-cormorant)' }}
                                 />
                             </div>
@@ -181,7 +181,7 @@ export default function EditProductForm({ product }: { product: any }) {
 
                         {/* URL Imagen */}
                         <div className="relative group/input">
-                            <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#555] group-focus-within/input:text-[#B3945B] transition-colors">
+                            <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#555] group-focus-within/input:text-[#c28c28] transition-colors">
                                 <FaImage className="text-xs" />
                             </div>
                             <ImageUpload 
@@ -197,7 +197,7 @@ export default function EditProductForm({ product }: { product: any }) {
                             onChange={handleChange} 
                             placeholder="Descripción oculta..." 
                             rows={4} 
-                            className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] p-4 focus:outline-none focus:border-[#B3945B] transition-colors placeholder-[#444] text-lg font-light resize-none"
+                            className="w-full bg-[#0a0a0a] border border-[#333] text-[#E0E0E0] p-4 focus:outline-none focus:border-[#c28c28] transition-colors placeholder-[#444] text-lg font-light resize-none"
                             style={{ fontFamily: 'var(--font-cormorant)' }}
                         />
 
@@ -216,7 +216,7 @@ export default function EditProductForm({ product }: { product: any }) {
                             <button 
                                 type="submit" 
                                 disabled={loading} 
-                                className="w-2/3 bg-[#B3945B] hover:bg-[#C5A56A] text-[#050505] py-4 font-bold uppercase tracking-[0.2em] text-xs transition-all disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group/btn"
+                                className="w-2/3 bg-[#c28c28] hover:bg-[#C5A56A] text-[#050505] py-4 font-bold uppercase tracking-[0.2em] text-xs transition-all disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group/btn"
                                 style={{ fontFamily: 'var(--font-cinzel)' }}
                             >
                                 <span className="relative z-10 flex items-center justify-center gap-3">
@@ -241,7 +241,7 @@ export default function EditProductForm({ product }: { product: any }) {
                          transition={{ delay: 0.2 }}
                          className="sticky top-24"
                     >
-                        <h3 className="text-[#B3945B] text-xs uppercase tracking-[0.3em] mb-6 text-center font-bold" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                        <h3 className="text-[#c28c28] text-xs uppercase tracking-[0.3em] mb-6 text-center font-bold" style={{ fontFamily: 'var(--font-cinzel)' }}>
                             Previsualización del Cambio
                         </h3>
                         
@@ -276,9 +276,9 @@ export default function EditProductForm({ product }: { product: any }) {
                             {/* Info */}
                             <div className="p-6 relative text-center">
                                 {/* Línea decorativa */}
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-[1px] bg-[#B3945B]" />
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-[1px] bg-[#c28c28]" />
 
-                                <span className="text-[10px] text-[#B3945B] font-bold uppercase tracking-[0.2em] block mb-2" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                                <span className="text-[10px] text-[#c28c28] font-bold uppercase tracking-[0.2em] block mb-2" style={{ fontFamily: 'var(--font-cinzel)' }}>
                                     {formData.category || "Sin Clase"}
                                 </span>
                                 
@@ -298,7 +298,7 @@ export default function EditProductForm({ product }: { product: any }) {
                             </div>
                         </div>
                         
-                        <div className="mt-8 text-center border-t border-[#B3945B]/10 pt-4 w-full max-w-sm mx-auto">
+                        <div className="mt-8 text-center border-t border-[#c28c28]/10 pt-4 w-full max-w-sm mx-auto">
                             <p className="text-[#444] text-[10px] uppercase tracking-widest">
                                 ID Original: <span className="text-[#666] font-mono">{product.id.slice(0, 8)}...</span>
                             </p>
