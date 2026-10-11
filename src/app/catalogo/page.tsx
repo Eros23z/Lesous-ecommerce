@@ -5,22 +5,8 @@ import ProductCard from "@/components/ProductCard";
 import { useState, useEffect, useMemo } from "react"; 
 import Link from "next/link";
 import { FaSearch, FaMagic, FaGem, FaLayerGroup } from "react-icons/fa";
-import { Cinzel, Cormorant_Garamond } from 'next/font/google';
 import { useProducts } from "@/hooks/useProducts";
 import { useCategories } from "@/hooks/useCategories";
-
-// --- FUENTES ---
-const cinzel = Cinzel({ 
-  subsets: ['latin'], 
-  weight: ['400', '700'],
-  variable: '--font-cinzel',
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '600'],
-  variable: '--font-cormorant',
-});
 
 export default function CatalogoPage() {
   const { products, loading: loadingProducts } = useProducts();
@@ -63,7 +49,7 @@ export default function CatalogoPage() {
   }
 
   return (
-    <div className={`min-h-screen bg-[#020202]/0 text-[#E0E0E0] relative overflow-hidden selection:bg-[#c28c28]/30 ${cinzel.variable} ${cormorant.variable} font-serif`}>
+    <div className="min-h-screen bg-[#020202]/0 text-[#E0E0E0] relative overflow-hidden selection:bg-[#c28c28]/30 font-serif">
       
       {/* --- FONDO ATMOSFÉRICO --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -79,7 +65,7 @@ export default function CatalogoPage() {
             Colección Sagrada
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-5xl md:text-7xl text-[#EAEAEA] mb-6 drop-shadow-2xl" style={{ fontFamily: 'var(--font-cinzel)' }}>
-            El Grimorio
+            El Baúl
           </motion.h1>
           <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#c28c28] to-transparent mx-auto mb-6" />
         </div>

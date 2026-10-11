@@ -23,7 +23,7 @@ export function useProducts() {
     setError(null);
     try {
       const res = await fetch("/api/products");
-      if (!res.ok) throw new Error("Error al conectar con el grimorio");
+      if (!res.ok) throw new Error("Error al conectar con el baúl");
       
       const data = await res.json();
       setProducts(Array.isArray(data) ? data : []);

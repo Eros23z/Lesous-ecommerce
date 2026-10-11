@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Cinzel, Cormorant_Garamond } from 'next/font/google';
 
 // Solo para tipos
 interface Product {
@@ -13,14 +12,11 @@ interface Product {
     category?: { name: string } | null;
 }
 
-const cinzel = Cinzel({ subsets: ['latin'], weight: ['700'], variable: '--font-cinzel' });
-const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['400'], variable: '--font-cormorant' });
-
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <motion.div
       whileHover={{ y: -10 }}
-      className={`group relative h-full bg-[#050505] border border-[#1A1A1A] hover:border-[#c28c28]/40 transition-all duration-500 overflow-hidden ${cinzel.variable} ${cormorant.variable}`}
+      className="group relative h-full bg-[#050505] border border-[#1A1A1A] hover:border-[#c28c28]/40 transition-all duration-500 overflow-hidden"
     >
       {/* Imagen */}
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#0a0a0a]">

@@ -5,23 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaPlus, FaSearch, FaTrash, FaPen, FaGem, FaBoxOpen, FaLayerGroup } from "react-icons/fa";
-import { Cinzel, Cormorant_Garamond } from 'next/font/google';
 import { useProducts } from "@/hooks/useProducts";
 import ConfirmModal from "@/components/modals/ConfirmModal";
 import AlertModal from "@/components/modals/AlertModal";
-
-// --- FUENTES MÍSTICAS ---
-const cinzel = Cinzel({ 
-  subsets: ['latin'], 
-  weight: ['400', '700'],
-  variable: '--font-cinzel',
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '600'],
-  variable: '--font-cormorant',
-});
 
 export default function Dashboard() {
   const { products, loading, setProducts } = useProducts();
@@ -60,7 +46,7 @@ export default function Dashboard() {
       setAlertModal({ 
         isOpen: true, // Recuerda usar isOpen según tu componente
         title: "Fallo en el Ritual", 
-        message: error.message || "El grimorio no responde." 
+        message: error.message || "El Bául no responde." 
       });
     }
   }
@@ -71,7 +57,7 @@ export default function Dashboard() {
   );
 
   return (
-    <div className={`min-h-screen bg-[#020202]/0 text-[#E0E0E0] font-serif selection:bg-[#c28c28]/30 ${cinzel.variable} ${cormorant.variable} pb-20`}>
+    <div className="min-h-screen bg-[#020202]/0 text-[#E0E0E0] font-serif selection:bg-[#c28c28]/30 pb-20">
       
       {/* --- FONDO ATMOSFÉRICO --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -146,7 +132,7 @@ export default function Dashboard() {
           </div>
           <input 
             type="text" 
-            placeholder="Buscar en el grimorio..." 
+            placeholder="Buscar en el Baúl..." 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full bg-transparent border-b border-[#333] text-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:border-[#c28c28] transition-colors placeholder-[#444] text-lg font-light"
@@ -259,7 +245,7 @@ export default function Dashboard() {
           >
             <FaGem className="text-4xl text-[#333] mb-4" />
             <p className="text-xl text-[#666]" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                El grimorio está vacío.
+                El Baúl está vacío.
             </p>
             <button 
               onClick={() => setSearchTerm("")}

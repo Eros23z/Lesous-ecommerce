@@ -1,5 +1,6 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import { getAuthenticatedUser } from "@/lib/auth";
 import EditProductForm from "@/components/EditProductForm";
 
 interface EditPageProps {
@@ -9,6 +10,11 @@ interface EditPageProps {
 }
 
 export default async function EditProductPage({ params }: EditPageProps) {
+  const user = await getAuthenticatedUser();
+  if (!user) {
+    redirect("/admin/login");
+  }
+
   const { id } = await params;
 
   const product = await prisma.product.findUnique({

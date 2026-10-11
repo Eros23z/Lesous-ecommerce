@@ -4,23 +4,8 @@ import { useState } from "react";
 import { FaArrowLeft, FaLock, FaGem } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Importante para redirigir
-import { Cinzel, Cormorant_Garamond } from 'next/font/google';
-// 1. Importamos el cliente de Auth Helpers
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase-browser";
-
-// --- FUENTES MÍSTICAS ---
-const cinzel = Cinzel({ 
-  subsets: ['latin'], 
-  weight: ['400', '700'],
-  variable: '--font-cinzel',
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '600'],
-  variable: '--font-cormorant',
-});
 
 export default function LoginPage() {
   const router = useRouter();
@@ -56,13 +41,13 @@ export default function LoginPage() {
     } catch (err: any) {
       console.error("Login error:", err.message);
       // Mensaje místico de error
-      setError("Las credenciales fueron rechazadas por el grimorio.");
+      setError("Las credenciales fueron rechazadas por el Baúl.");
       setLoading(false);
     }
   };
 
   return (
-    <div className={`min-h-screen bg-[#020202]/0 text-[#E0E0E0] flex items-center justify-center p-4 relative overflow-hidden ${cinzel.variable} ${cormorant.variable} font-serif`}>
+    <div className="min-h-screen bg-[#020202]/0 text-[#E0E0E0] flex items-center justify-center p-4 relative overflow-hidden font-serif">
       
       {/* --- FONDO ATMOSFÉRICO --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">

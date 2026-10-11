@@ -1,51 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from "framer-motion";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { FaGem, FaMagic, FaDragon, FaArrowRight } from "react-icons/fa";
-import { Cinzel, Cormorant_Garamond } from 'next/font/google';
-
-// --- CONFIGURACIÓN DE FUENTES ---
-const cinzel = Cinzel({ 
-  subsets: ['latin'], 
-  weight: ['400', '700'],
-  variable: '--font-cinzel',
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '600', '700'],
-  variable: '--font-cormorant',
-});
 
 export default function Home() {
   const { scrollY } = useScroll();
   const yHero = useTransform(scrollY, [0, 500], [0, 150]);
   const opacityHero = useTransform(scrollY, [0, 300], [1, 0]);
 
-  // --- LÓGICA DEL CURSOR MÁGICO ---
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
   return (
     <div 
-      className={`relative min-h-screen bg-[#020202]/0 text-[#E0E0E0] overflow-hidden selection:bg-[#c28c28]/30 ${cinzel.variable} ${cormorant.variable} font-serif`}
-      
+      className="relative min-h-screen bg-[#020202]/0 text-[#E0E0E0] overflow-hidden selection:bg-[#c28c28]/30 font-serif"
     >
       {/* --- HERO SECTION --- */}
       <section className="relative h-screen flex flex-col items-center justify-center text-center px-4 z-10">
         
         <motion.div style={{ y: yHero, opacity: opacityHero }} className="flex flex-col items-center relative">
           
-          {/* Icono Principal con Halo */}
+          {/* Logo Principal Unificado con Halo Dorado Suavizado */}
           <motion.div 
-            initial={{ scale: 0.8, opacity: 0 }}
+            initial={{ scale: 0.85, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            className="relative mb-10"
+            className="relative mb-2 w-[95vw] md:w-[60vw] max-w-[950px] aspect-[2400/846] flex items-center justify-center"
           >
-            <div className="absolute inset-0 bg-[#c28c28] blur-[60px] opacity-20 animate-pulse" />
-            <FaGem className="text-[#c28c28] text-7xl relative z-10 drop-shadow-[0_0_15px_rgba(179,148,91,0.5)]" />
+            <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(194,140,40,0.12)_0%,rgba(194,140,40,0.03)_50%,transparent_75%)] blur-2xl pointer-events-none" />
+            
+            <Image
+              src="/images/logo-full.png" 
+              alt="Lesous Artefacts"
+              fill
+              sizes="(max-width: 768px) 95vw, 60vw"
+              className="object-contain drop-shadow-[0_0_12px_rgba(194,140,40,0.18)]"
+              priority
+            />
           </motion.div>
 
           {/* Título Principal */}
@@ -61,7 +51,7 @@ export default function Home() {
             className="mt-6 text-xl md:text-3xl text-[#c28c28]/80 max-w-2xl font-light italic tracking-wide"
             style={{ fontFamily: 'var(--font-cormorant)' }}
           >
-            Donde la magia antigua se forja en metal eterno.
+            Entre sombras y destellos, encontrá tu esencia.
           </motion.p>
 
           {/* Botón CTA Mejorado */}
@@ -77,7 +67,7 @@ export default function Home() {
                 <div className="absolute inset-0 w-0 bg-[#c28c28] transition-all duration-[250ms] ease-out group-hover:w-full opacity-10" />
                 
                 <span className="relative flex items-center gap-4 text-[#c28c28] group-hover:text-[#FCD34D] tracking-[0.25em] text-sm font-bold uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                  Grimorio
+                  Baúl
                   <FaArrowRight className="text-xs transition-transform group-hover:translate-x-2" />
                 </span>
                 

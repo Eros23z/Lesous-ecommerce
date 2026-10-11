@@ -2,25 +2,18 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FaGem, FaUserShield, FaSignOutAlt, FaSpinner } from 'react-icons/fa';
-import { Cinzel } from 'next/font/google';
 import { createClient } from "@/lib/supabase-browser";
-
-// Configuramos la fuente Cinzel solo para este componente
-const cinzel = Cinzel({ 
-  subsets: ['latin'], 
-  weight: ['400', '700'],
-  variable: '--font-cinzel',
-});
 
 const Header = () => {
   const pathname = usePathname();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
-  const isInAdminPanel = pathname.startsWith('/admin/dashboard');
   const isLoginPage = pathname === '/admin/login';
+  const isInAdminPanel = pathname.startsWith('/admin') && !isLoginPage;
 
   const router = useRouter();
   const supabase = createClient();
@@ -44,23 +37,30 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      className={`fixed top-0 left-0 right-0 z-50 bg-[#020202]/50 backdrop-blur-md border-b border-[#c28c28]/20 ${cinzel.variable} font-serif`}
+      className="fixed top-0 left-0 right-0 z-50 bg-[#020202]/50 backdrop-blur-md border-b border-[#c28c28]/20 font-serif"
     >
       <div className="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
         
         {/* --- LOGO --- */}
-        <Link href="/" className="group flex items-center gap-3">
+        <Link href="/" className="group flex items-center gap-4">
           <motion.div 
-            whileHover={{ rotate: 45, scale: 1.1 }} 
-            className="text-[#c28c28] bg-[#c28c28]/10 p-2 rounded-full border border-[#c28c28]/20 transition-colors group-hover:bg-[#c28c28] group-hover:text-black"
+            whileHover={{ scale: 1.08 }} 
+            className="relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center transition-transform"
           >
-            <FaGem className="text-xl" />
+            <Image 
+              src="/images/logo-icon.png" 
+              alt="Lesous Icon" 
+              fill
+              sizes="(max-width: 768px) 48px, 56px"
+              className="object-contain drop-shadow-[0_0_10px_rgba(194,140,40,0.5)] group-hover:drop-shadow-[0_0_15px_rgba(194,140,40,0.8)] transition-all"
+              priority
+            />
           </motion.div>
           <div className="flex flex-col">
-            <span className="text-2xl font-bold text-[#EAEAEA] tracking-[0.15em] uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
+            <span className="text-2xl md:text-3xl font-bold text-[#EAEAEA] tracking-[0.2em] uppercase leading-none group-hover:text-[#c28c28] transition-colors" style={{ fontFamily: 'var(--font-cinzel)' }}>
               Lesous
             </span>
-            <span className="text-[0.6rem] text-[#c28c28] tracking-[0.3em] uppercase opacity-80 group-hover:opacity-100 transition-opacity">
+            <span className="text-[0.65rem] text-[#c28c28] tracking-[0.35em] uppercase opacity-80 group-hover:opacity-100 transition-opacity mt-1" style={{ fontFamily: 'var(--font-cinzel)' }}>
               Artefacts
             </span>
           </div>

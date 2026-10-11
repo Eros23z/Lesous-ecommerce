@@ -6,21 +6,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaArrowLeft, FaGem, FaDollarSign, FaImage, FaLayerGroup, FaSave, FaBoxOpen, FaTrash } from "react-icons/fa";
-import { Cinzel, Cormorant_Garamond } from 'next/font/google';
 import ImageUpload from "@/components/ImageUpload";
-
-// --- FUENTES MÍSTICAS ---
-const cinzel = Cinzel({ 
-  subsets: ['latin'], 
-  weight: ['400', '700'],
-  variable: '--font-cinzel',
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '600'],
-  variable: '--font-cormorant',
-});
 
 export default function EditProductForm({ product }: { product: any }) {
     const router = useRouter();
@@ -76,7 +62,7 @@ export default function EditProductForm({ product }: { product: any }) {
     }
 
     return (
-        <div className={`min-h-screen bg-[#020202]/0 text-[#E0E0E0] flex items-center justify-center p-4 relative overflow-hidden ${cinzel.variable} ${cormorant.variable} font-serif pt-24 pb-20`}>
+        <div className="min-h-screen bg-[#020202]/0 text-[#E0E0E0] flex items-center justify-center p-4 relative overflow-hidden font-serif pt-24 pb-20">
             
             {/* --- FONDO ATMOSFÉRICO --- */}
             <div className="fixed inset-0 z-0 pointer-events-none">

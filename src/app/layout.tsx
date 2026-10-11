@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cinzel, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,18 +7,21 @@ import MagicCursor from "@/components/MagicCursor";
 import BackgroundEmblem from "@/components/BackgroundEmblem";
 import MagicParticles from "@/components/MagicParticles";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Lesous",
+  title: "Lesous Artefacts | Baúl",
+  description: "Entre sombras y destellos, encontrá tu esencia. Catálogo exclusivo de artefactos, prendas, accesorios y joyería sagrada.",
 };
 
 export default function RootLayout({
@@ -27,9 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className="bg-[#020202] text-[#E0E0E0] antialiased"> {/* Fondo base oscuro aquí */}
-        
+    <html lang="es" className={`${cinzel.variable} ${cormorant.variable}`}>
+      <body className="bg-[#020202] text-[#E0E0E0] antialiased">
         {/* El cursor va primero */}
         <MagicCursor />
 

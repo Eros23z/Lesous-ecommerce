@@ -1,27 +1,14 @@
 "use client";
 
-import { FaInstagram, FaFacebookF, FaWhatsapp, FaGem } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
 import Link from 'next/link';
-import { Cinzel, Cormorant_Garamond } from 'next/font/google';
-
-// Configuración de fuentes (para asegurar que se vean igual que en home)
-const cinzel = Cinzel({ 
-  subsets: ['latin'], 
-  weight: ['400', '700'],
-  variable: '--font-cinzel',
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '600'],
-  variable: '--font-cormorant',
-});
+import Image from 'next/image';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className={`relative bg-[#020202]/50 text-[#E0E0E0] border-t border-[#c28c28]/20 pt-20 pb-10 overflow-hidden ${cinzel.variable} ${cormorant.variable} font-serif`}>
+        <footer className="relative bg-[#020202]/50 text-[#E0E0E0] border-t border-[#c28c28]/20 pt-20 pb-10 overflow-hidden font-serif">
             
             {/* Fondo Sutil (Ruido + Luz) */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/stardust.png")' }} />
@@ -30,22 +17,30 @@ const Footer = () => {
             <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center">
                 
                 {/* --- SECCIÓN MÍSTICA (Puente visual) --- */}
-                <div className="text-center mb-12 w-full">
-                    <p className="text-[#c28c28]/80 text-xs md:text-sm tracking-[0.4em] uppercase mb-6 drop-shadow-lg" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                <div className="text-center mb-10 w-full flex flex-col items-center">
+                    <p className="text-[#c28c28]/80 text-xs md:text-sm tracking-[0.4em] uppercase mb-4 drop-shadow-lg" style={{ fontFamily: 'var(--font-cinzel)' }}>
                         Mysterium Fidei
                     </p>
-                    {/* Línea divisoria elegante */}
-                    <div className="flex items-center justify-center gap-4 opacity-50">
-                        <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-[#c28c28]" />
-                        <FaGem className="text-[#c28c28] text-[10px]" />
-                        <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-[#c28c28]" />
+                    {/* Línea divisoria elegante con icono oficial */}
+                    <div className="flex items-center justify-center gap-4 opacity-70">
+                        <div className="h-[1px] w-24 bg-gradient-to-r from-transparent to-[#c28c28]" />
+                        <div className="relative w-8 h-8 flex items-center justify-center">
+                          <Image src="/images/logo-icon.png" alt="Lesous Icon" fill sizes="32px" className="object-contain drop-shadow-[0_0_8px_rgba(194,140,40,0.5)]" />
+                        </div>
+                        <div className="h-[1px] w-24 bg-gradient-to-l from-transparent to-[#c28c28]" />
                     </div>
                 </div>
 
-                {/* --- LOGO --- */}
-                <h2 className="text-4xl md:text-5xl font-bold text-[#EAEAEA] mb-8 tracking-widest uppercase hover:text-[#c28c28] transition-colors duration-500 cursor-default" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                    Lesous
-                </h2>
+                {/* --- LOGO COMPLETO --- */}
+                <div className="relative w-64 h-24 md:w-80 md:h-32 mb-8">
+                  <Image 
+                    src="/images/logo-full.png" 
+                    alt="Lesous" 
+                    fill 
+                    sizes="(max-width: 768px) 256px, 320px"
+                    className="object-contain drop-shadow-[0_0_18px_rgba(194,140,40,0.35)]"
+                  />
+                </div>
 
                 {/* --- REDES SOCIALES (Estilo Orbes Mágicos) --- */}
                 <div className="flex gap-8 mb-12">

@@ -4,21 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { FaWhatsapp, FaArrowLeft, FaGem, FaCube } from "react-icons/fa";
-import { Cinzel, Cormorant_Garamond } from 'next/font/google';
-
-// --- FUENTES ---
-const cinzel = Cinzel({ 
-  subsets: ['latin'], 
-  weight: ['400', '700'],
-  variable: '--font-cinzel',
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'], 
-  weight: ['300', '400', '600', '700'],
-  variable: '--font-cormorant',
-});
-
 interface Product {
   id: string;
   name: string;
@@ -36,13 +21,13 @@ export default function ProductDetail({ product }: { product: Product }) {
   const PHONE_NUMBER = "5492664295883"; 
 
   const handleContact = () => {
-    const message = `Saludos. Deseo reclamar el artefacto "${product.name}" del Grimorio, listado en $${price.toFixed(2)}.`;
+    const message = `Saludos. Deseo reclamar el artefacto "${product.name}" de el baúl, listado en $${price.toFixed(2)}.`;
     const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   return (
-    <div className={`min-h-screen bg-[#020202]/0 text-[#E0E0E0] relative overflow-hidden ${cinzel.variable} ${cormorant.variable} font-serif pt-24 pb-20`}>
+    <div className="min-h-screen bg-[#020202]/0 text-[#E0E0E0] relative overflow-hidden font-serif pt-24 pb-20">
       
       {/* --- FONDO ATMOSFÉRICO --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -66,7 +51,7 @@ export default function ProductDetail({ product }: { product: Product }) {
                     <FaArrowLeft className="text-xs group-hover:-translate-x-1 transition-transform" />
                 </div>
                 <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                    Regresar al Grimorio
+                    Regresar al Baúl
                 </span>
              </button>
           </Link>

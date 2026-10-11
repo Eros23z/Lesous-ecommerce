@@ -4,14 +4,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { FaArrowLeft, FaPlus, FaTrash, FaLayerGroup, FaSpinner, FaExclamationTriangle, FaTimes, FaCheck } from "react-icons/fa";
-import { Cinzel, Cormorant_Garamond } from 'next/font/google';
 import { useCategories } from "@/hooks/useCategories";
 import ConfirmModal from "@/components/modals/ConfirmModal";
 import AlertModal from "@/components/modals/AlertModal";
-
-// Configuración de fuentes
-const cinzel = Cinzel({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-cinzel' });
-const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['300', '400', '600'], variable: '--font-cormorant' });
 
 export default function CategoriesPage() {
   const { categories, loading, refresh, setCategories } = useCategories();
@@ -88,12 +83,12 @@ export default function CategoriesPage() {
       setAlertModal({ 
         isOpen: true, 
         title: "Error de Conexión", 
-        message: "No se pudo conectar con el grimorio." 
+        message: "No se pudo conectar con el baúl." 
       });
     }
   };
   return (
-    <div className={`min-h-screen bg-[#020202] text-[#E0E0E0] p-6 pt-24 font-serif ${cinzel.variable} ${cormorant.variable}`}>
+    <div className="min-h-screen bg-[#020202] text-[#E0E0E0] p-6 pt-24 font-serif">
       
       {/* Fondo Ambiental */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -154,7 +149,7 @@ export default function CategoriesPage() {
                 className="w-full bg-[#c28c28] hover:bg-[#C5A56A] text-[#050505] py-3 font-bold uppercase tracking-[0.2em] text-xs transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ fontFamily: 'var(--font-cinzel)' }}
               >
-                {submitting ? "Inscribiendo..." : "Agregar al Grimorio"}
+                {submitting ? "Inscribiendo..." : "Agregar al Baúl"}
               </button>
             </form>
           </div>
@@ -236,7 +231,7 @@ export default function CategoriesPage() {
                     ¿Desintegrar Clase?
                 </h3>
                 <p className="text-[#888] text-sm font-light mb-8" style={{ fontFamily: 'var(--font-cormorant)' }}>
-                    Esta acción no se puede deshacer. Se eliminará permanentemente del grimorio.
+                    Esta acción no se puede deshacer. Se eliminará permanentemente del Baúl.
                 </p>
                 
                 <div className="flex gap-4 w-full">
@@ -269,7 +264,7 @@ export default function CategoriesPage() {
          onClose={() => setShowConfirmModal(false)}
          onConfirm={confirmDelete}
          title="¿Desintegrar Clase?"
-         message="Esta acción no se puede deshacer. Se eliminará permanentemente del grimorio."
+         message="Esta acción no se puede deshacer. Se eliminará permanentemente del baúl."
        />
 
        <AlertModal 

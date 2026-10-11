@@ -21,29 +21,50 @@ export default function ImageUpload({ value, onChange, disabled }: ImageUploadPr
       const file = e.target.files?.[0];
       if (!file) return;
 
-      // 1. Crear nombre único para el archivo (evita colisiones)
-      const fileExt = file.name.split('.').pop();
-      const fileName = `${Math.random().toString(36).substring(2)}.${fileExt}`;
+      // 1. Validaciones de seguridad de archivo
+      const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
+      if (file.size > MAX_FILE_SIZE) {
+        alert("La imagen excede el tamaño máximo permitido de 2MB.");
+        return;
+      }
+
+      const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp"];
+      if (!ALLOWED_TYPES.includes(file.type)) {
+        alert("Formato de imagen inválido. Solo se admiten JPG, PNG y WEBP.");
+        return;
+      }
+
+      const fileExt = file.name.split('.').pop()?.toLowerCase();
+      if (!fileExt || !["jpg", "jpeg", "png", "webp"].includes(fileExt)) {
+        alert("Extensión de archivo no admitida.");
+        return;
+      }
+
+      // 2. Crear nombre único criptográficamente seguro para el archivo
+      const randomId = typeof crypto !== 'undefined' && crypto.randomUUID 
+        ? crypto.randomUUID() 
+        : Math.random().toString(36).substring(2);
+      const fileName = `${randomId}.${fileExt}`;
       const filePath = `${fileName}`;
 
-      // 2. Subir a Supabase
+      // 3. Subir a Supabase Storage
       const { error: uploadError } = await supabase.storage
-        .from('products') // Tu bucket
+        .from('products')
         .upload(filePath, file);
 
       if (uploadError) {
         throw uploadError;
       }
 
-      // 3. Obtener URL Pública
+      // 4. Obtener URL Pública
       const { data } = supabase.storage.from('products').getPublicUrl(filePath);
       
-      // 4. Devolver la URL al formulario padre
+      // 5. Devolver la URL al formulario padre
       onChange(data.publicUrl);
 
     } catch (error) {
       console.error("Error subiendo imagen:", error);
-      alert("Error al subir la imagen al grimorio.");
+      alert("Error al subir la imagen al baúl.");
     } finally {
       setUploading(false);
     }
